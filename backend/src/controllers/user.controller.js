@@ -24,6 +24,11 @@ const userControllers = {
 
       const existingUser = await prisma.user.findUnique({ where: { email } });
 
+      console.log(
+        "existingUser && existingUser.isVerified",
+        existingUser && existingUser.isVerified
+      );
+
       if (existingUser && existingUser.isVerified) {
         return res
           .status(StatusCodes.BAD_REQUEST)

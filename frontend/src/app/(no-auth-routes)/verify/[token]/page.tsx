@@ -1,7 +1,7 @@
 "use client";
 import { useVerifyUser } from "@/hooks/apiHooks";
 import { CheckCircle, Error } from "@mui/icons-material";
-import { CircularProgress } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -16,6 +16,10 @@ const VerifyPage = () => {
       mutate();
     }
   }, [mutate, token]);
+
+  const handleLoginClick = () => {
+    router.replace("/login");
+  };
 
   if (isPending) {
     return (
@@ -41,6 +45,13 @@ const VerifyPage = () => {
           <p className="text-gray-600">
             Please try again or contact support for assistance.
           </p>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleLoginClick}
+          >
+            Go to Login
+          </Button>
         </div>
       </div>
     );
@@ -60,6 +71,13 @@ const VerifyPage = () => {
           <p className="text-gray-600">
             Your account has been successfully verified. You can now log in.
           </p>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleLoginClick}
+          >
+            Go to Login
+          </Button>
         </div>
       </div>
     );
