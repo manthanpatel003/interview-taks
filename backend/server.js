@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://interview-taks-a1bs.vercel.app"],
     credentials: true,
   })
 );
@@ -31,5 +31,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on Port : ${PORT}`);
 });
