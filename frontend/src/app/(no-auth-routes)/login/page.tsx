@@ -50,9 +50,8 @@ const LoginPage = () => {
     onSubmit: (values) => {
       mutate(values, {
         onSuccess: (response) => {
-          console.log("Login successful", response);
           if (response?.token) {
-            document.cookie = `token=${response.token}; path=/; max-age=86400; secure`;
+            document.cookie = `token=${response?.token}; path=/; max-age=86400; secure`;
           }
           localStorage.setItem("user", JSON.stringify(response?.user));
           router.replace("/");

@@ -10,8 +10,6 @@ import { userRoutes } from "./route";
 import useAxios from "./useAxios";
 
 const handleSuccess = (response: IApiResponse) => {
-  console.log("response", response);
-
   if (response?.message) {
     toast.success(response.message);
   }

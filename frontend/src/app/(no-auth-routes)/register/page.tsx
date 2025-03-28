@@ -62,9 +62,7 @@ const AdminRegisterPage = () => {
     }),
     onSubmit: (values) => {
       mutate(values, {
-        onSuccess: (response) => {
-          console.log("Login successful", response);
-
+        onSuccess: () => {
           router.replace("/");
         },
         onError: (error) => {
